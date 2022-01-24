@@ -1,0 +1,16 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 30px;
+
+	&__desc {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__text {
+		text-align: center;
+		letter-spacing: 5px;
+	}
+}
