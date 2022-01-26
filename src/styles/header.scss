@@ -26,7 +26,6 @@
 	align-items: center;
 	position: fixed;
 	width: 100%;
-	padding-left: 25px;
 	z-index: 10;
 	top: 0;
 
@@ -132,14 +131,16 @@
 
 	&-icon {
 		position: relative;
-		transition: 0.3s;
+		right: 33px;
+
+		transition: all .3s;
 		&,
 		&::before,
 		&::after {
 			display: block;
-			width: 30px;
+			width: 35px;
 			position: absolute;
-			height: 3px;
+			height: 4px;
 			background-color: #000000;
 			top: 50%;
 			border-radius: 6px;
@@ -167,6 +168,8 @@
 			position: absolute;
 			visibility: visible;
 			width: 100%;
+
+			border-bottom-left-radius: 6px;
 			
 			animation-duration: .4s;
 			animation-name: slidein;
@@ -235,20 +238,11 @@
 	
 }
 
-
-
-
-
-
-.logo {
-	
-}
 .logo__link {
 	cursor: pointer;
 }
 .logo__img {
 	width: 60px;
-	padding: 10px;
 }
 .menu__mobile {
 
