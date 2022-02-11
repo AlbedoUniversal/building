@@ -2,14 +2,13 @@
 .header {
 	width: 100%;
 	
-	padding: 0 15px;
+	padding: 45px 15px 10px 15px;
 
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 10;
 
-	
 	background-color: $c-white;
 	
 	&__items {
@@ -17,12 +16,21 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
 
-		border-bottom: 2px solid;
+	&__items-right {
+		display: flex;
+		align-items: center;
+	}
+
+	&__items-left {
+		display: flex;
+		align-items: center;
 	}
 }
 
 .menu {
+	margin-left: 64px;
 	text-align: center;
 
 	@media screen and (max-width: 870px) {
@@ -43,12 +51,28 @@
 	
 			.menu__list-link {
 				display: block;
-				padding: 15px 30px;
+				padding: 15px 13px;
 
-				color: $mainFontColor; 
+				position: relative;
+
+				font-size: 18px;
+				line-height: 24px;
+				
+				color: #9E9E9E; 
 				text-decoration: none;
 
 				transition: all 0.3s;
+
+				&:before {
+					content: none;
+					position: absolute;
+					width: 6px;
+					height: 6px;
+					background-color:$c-accentGreen;
+					bottom: 0;
+					right: calc(50% - 5px);
+					border-radius: 100%;
+				}
 			}
 			
 			&:hover {
@@ -57,8 +81,10 @@
 				}
 	
 				.menu__list-link {
-					letter-spacing: 0.1em;
-					// font-family: 'bold';
+					color: #060606;
+					&:before {
+						content: "";
+					}
 				}
 			}
 		}
@@ -81,6 +107,9 @@
 			}
 			.menu__list-link {
 				padding: 15px 30px;
+				&:before {
+					content: none !important;
+				}
 				&:hover {
 					background: $c-silver;
 				}
@@ -251,22 +280,53 @@
 	}
 }
 
-
-.heading {
-	display: none;
-	&__text {
-		font-family: NunitoBold;
-		font-size: 26px;
-		letter-spacing: 18px;
+.logo {
+	&__link {
+		cursor: pointer;
 	}
-	@media screen and (max-width: 869px) {
+	&__img {
+	}
+}
+
+.call {
+	&__number {
+		color: #767676;
+
+		transition: color .3s;
+
+		&:hover {
+			color: #060606;
+		}
+	}
+}
+
+.form {
+	&__btn {
 		display: block;
+		position: relative;
+		width: 56px;
+		height: 56px;
+		background-color: $c-accentGreen;
+		border-radius: 100%;
+		cursor: pointer;
+		margin-left: 24px;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			width: 2px;
+			height: 21px;
+			background-color:$c-white;
+			left: calc(50% - 1px);
+			bottom: 18px;
+		}
+
+		&::after {
+			transform: rotate(90deg);
+		}
 	}
 }
 
-.logo__link {
-	cursor: pointer;
-}
-.logo__img {
-	width: 60px;
-}
+
+
