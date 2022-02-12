@@ -1,6 +1,6 @@
 # intime
 
-Необходимые зависимости:
+`Необходимые зависимости:`
 
 1) NodeJS — JavaScript runtime built on Chrome's V8 JavaScript engine.
 2) npm — пакетный менеджер
