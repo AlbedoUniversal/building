@@ -1,5 +1,7 @@
 /*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */
 
+/*! ./activePage */
+
 /*! ./styles/main.scss */
 
 /*! lodash */
@@ -7,6 +9,10 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
+
+/*!***************************!*\
+  !*** ./src/activePage.js ***!
+  \***************************/
 
 /*!******************************!*\
   !*** ./src/styles/main.scss ***!
