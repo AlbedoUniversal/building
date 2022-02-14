@@ -2,7 +2,8 @@
 @import './utils/vars.scss';
 
 #main {
-	padding: 0 15px;
+	max-width: $desktopWidth;
+	margin: 0 auto;
 }
 
 @import './utils/style.scss';

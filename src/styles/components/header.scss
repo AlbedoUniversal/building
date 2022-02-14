@@ -2,7 +2,7 @@
 .header {
 	width: 100%;
 	
-	padding: 10px 15px 10px 15px;
+	padding: 40px 10px;
 
 	// position: fixed;
 	// top: 0;
@@ -71,6 +71,14 @@
 					background-color:$c-accentGreen;
 
 					border-radius: 100%;
+				}
+
+				&.active {
+					color: $c-activeDark;
+
+					&:before {
+						content: "";
+					}
 				}
 			}
 			
