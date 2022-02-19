@@ -1,6 +1,6 @@
 /*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */
 
-/*! ./activePage */
+/*! ./getActiveMenuItem */
 
 /*! ./styles/main.scss */
 
@@ -10,10 +10,10 @@
   !*** ./src/index.js ***!
   \**********************/
 
-/*!***************************!*\
-  !*** ./src/activePage.js ***!
-  \***************************/
-
 /*!******************************!*\
   !*** ./src/styles/main.scss ***!
   \******************************/
+
+/*!**********************************!*\
+  !*** ./src/getActiveMenuItem.js ***!
+  \**********************************/
