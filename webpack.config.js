@@ -1,11 +1,11 @@
 const webpack = require("webpack");
 const path = require('path');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin      = require('html-webpack-plugin');
+const MiniCssExtractPlugin   = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserWebpackPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin     = require("css-minimizer-webpack-plugin");
+const TerserWebpackPlugin    = require("terser-webpack-plugin");
 
 const PATHS = {
 	src: path.join(__dirname, "src"),
@@ -18,28 +18,27 @@ const postcssPresetEnv = require('postcss-preset-env');
 
 const devMode = process.env.NODE_ENV !== "production";
 
-const htmlPageNames = ['prikol'];
+const htmlPageNames = ['otherPage'];
 const multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
 	template: `${PATHS.src}/html/${name}.html`,
-	filename: `${name}.html`,
+	filename: `html/${name}.html`,
 	chunks: [`${name}`],
 	})
 });
 
-
-
 const plugins = [
 	new CleanWebpackPlugin(),
 	new MiniCssExtractPlugin({
-		filename: "[name].css",
+		filename: "styles/[name].[contenthash].css",
 		chunkFilename: "[id].css",
 	}),
 	new HtmlWebpackPlugin({
 		template: `${PATHS.src}/html/index.html`,
-		filename: './index.html',
-		favicon: `${PATHS.src}/assets/images/logo.svg`,
-	})
+		filename: 'html/index.html',
+		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
+	}),
+
 ].concat(multipleHtmlPlugins);
 
 if (devMode) {
@@ -61,8 +60,11 @@ module.exports = {
 	},
 	plugins,
 	output: {
-		filename: '[name].[contenthash].js',
+		filename: 'js/[name].[contenthash].js',
 		path: PATHS.dist,
+		clean: true,
+		publicPath: '../',
+		// assetModuleFilename: 'src/[name][ext][query]'
 	},
 	optimization: {
 		minimize: true,
@@ -90,23 +92,48 @@ module.exports = {
 		rules: [
 			{
 				test: /\.html$/,
-				use: 'html-loader'
+				   use: [
+					{
+						loader: 'html-loader',
+						options: { minimize: true },
+					},
+				],
 			},
 			{
 				test: /\.(sa|sc|c)ss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					'css-loader',
-					"sass-loader",
+					{loader: 'css-loader', options: {sourceMap: true, importLoaders: 1}},
+					{loader: 'postcss-loader', options: {sourceMap: true}},
+					{loader: 'sass-loader', options: {sourceMap: true}},
 				],
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(png|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
+				generator: {
+					filename: () => {
+						return devMode ? 'images/[name][ext]' : 'imgages/[name].[contenthash][ext]';
+					}
+				}
+			},
+			{
+				test: /\.(svg)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: () => {
+						return devMode ? 'icons/[name][ext]' : 'icons/[name].[contenthash][ext]';
+					}
+				}
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/resource',
+				generator: {
+					filename: () => {
+						return devMode ? 'fonts/[name][ext]' : 'fonts/[name].[contenthash][ext]';
+					}
+				}
 			},
 			{
 				test: /\.m?js$/,
