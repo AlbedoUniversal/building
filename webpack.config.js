@@ -13,6 +13,7 @@ const PATHS = {
 	assets: "assets/"
 };
 
+const putFilesToDist = folder => devMode ? `${folder}/[name][ext]` : `${folder}/[name].[contenthash][ext]`;
 
 const postcssPresetEnv = require('postcss-preset-env');
 
@@ -35,10 +36,9 @@ const plugins = [
 	}),
 	new HtmlWebpackPlugin({
 		template: `${PATHS.src}/html/index.html`,
-		filename: 'html/index.html',
+		filename: './index.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
 		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
 	}),
-
 ].concat(multipleHtmlPlugins);
 
 if (devMode) {
@@ -62,8 +62,7 @@ module.exports = {
 	output: {
 		filename: 'js/[name].[contenthash].js',
 		path: PATHS.dist,
-		clean: true,
-		publicPath: '../',
+		publicPath: '/', // devMode ? '/' : '../',
 		// assetModuleFilename: 'src/[name][ext][query]'
 	},
 	optimization: {
@@ -112,27 +111,21 @@ module.exports = {
 				test: /\.(png|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: () => {
-						return devMode ? 'images/[name][ext]' : 'imgages/[name].[contenthash][ext]';
-					}
+					filename: putFilesToDist('images'),
 				}
 			},
 			{
 				test: /\.(svg)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: () => {
-						return devMode ? 'icons/[name][ext]' : 'icons/[name].[contenthash][ext]';
-					}
+					filename: putFilesToDist('icons'),
 				}
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: () => {
-						return devMode ? 'fonts/[name][ext]' : 'fonts/[name].[contenthash][ext]';
-					}
+					filename: putFilesToDist('fonts'),
 				}
 			},
 			{
