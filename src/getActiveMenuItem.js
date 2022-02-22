@@ -1,15 +1,13 @@
 export const setActivePage = () => {
-	console.log('dedee');
 	let current = 0;
-	const allLinks = document.links;
+	const menuList = document.querySelector('.menu__list-upper');
+	const allLinks = menuList.querySelectorAll('.menu__list-link');
 	const menuLinks = [];
 
 	for (const link of allLinks) {
-
 		if (link.className === 'menu__list-link') {
 			menuLinks.push(link);
 		}
-
 	}
 
 	for (let i = 0; i < menuLinks.length; i++) {

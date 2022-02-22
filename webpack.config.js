@@ -32,7 +32,7 @@ const plugins = [
 	new CleanWebpackPlugin(),
 	new MiniCssExtractPlugin({
 		filename: "styles/[name].[contenthash].css",
-		chunkFilename: "[id].css",
+		chunkFilename: "[name].css",
 	}),
 	new HtmlWebpackPlugin({
 		template: `${PATHS.src}/html/index.html`,
@@ -66,10 +66,10 @@ module.exports = {
 		// assetModuleFilename: 'src/[name][ext][query]'
 	},
 	optimization: {
-		minimize: true,
+		// minimize: true,
 		minimizer: [
 			new TerserWebpackPlugin(),
-			new CssMinimizerPlugin(),
+			// new CssMinimizerPlugin(),
 		],
 		splitChunks: {
 			cacheGroups: {
@@ -94,7 +94,7 @@ module.exports = {
 				   use: [
 					{
 						loader: 'html-loader',
-						options: { minimize: true },
+						options: { minimize: false },
 					},
 				],
 			},
