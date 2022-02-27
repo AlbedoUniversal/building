@@ -4,7 +4,13 @@
 #main {
 	max-width: $desktopWidth;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 75px;
+
+	overflow: hidden;
+
+	@media screen and (max-width: 930px) {
+		padding: 0 15px;
+	}
 }
 
 @import './utils/style.scss';
@@ -12,3 +18,6 @@
 @import './components/grid.scss';
 @import './components/feedback.scss';
 @import './components/footer.scss';
+
+@import './components/decorBox.scss';
+@import './components/infoBlock.scss';

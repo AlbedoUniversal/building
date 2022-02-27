@@ -1,0 +1,44 @@
+.info-block {
+	display: flex;
+	margin-top: 80px;
+
+	padding-bottom: 79px;
+	border-bottom: 1px solid $c-borderGrey;
+
+	@media screen and (max-width: 930px) {
+		flex-direction: column;
+	}
+
+	&__left,
+	&__right {
+		flex-basis: 50%;
+	}
+
+	&__heading {
+		@media screen and (max-width: 930px) {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__heading-text {
+		font-size: 64px;
+		line-height: 99%;
+		letter-spacing: -0.01em;
+		font-weight: bold;
+		color: $c-black;
+
+		&--small {
+			font-size: 46px;
+		}
+
+		@media screen and (max-width: 930px) {
+			font-size: 42px;
+		}
+	}
+
+	&__desc-text {
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+}

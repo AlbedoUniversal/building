@@ -19,14 +19,18 @@ const postcssPresetEnv = require('postcss-preset-env');
 
 const devMode = process.env.NODE_ENV !== "production";
 
-const htmlPageNames = ['otherPage'];
-const multipleHtmlPlugins = htmlPageNames.map(name => {
-  return new HtmlWebpackPlugin({
-	template: `${PATHS.src}/html/${name}.html`,
-	filename: `html/${name}.html`,
-	chunks: [`${name}`],
-	})
-});
+// const htmlPageNames = ['contacts'];
+// const multipleHtmlPlugins = htmlPageNames.map(name => {
+//   return new HtmlWebpackPlugin({
+// 	template: `${PATHS.src}/html/${name}.html`,
+// 	filename: `./${name}.html`,
+// 	favicon: `${PATHS.src}/assets/icons/favicon.svg`,
+// 	chunks: [`${name}`],
+// 	assets: {
+//             style: "style.[hash].css",
+//         }
+// 	})
+// });
 
 const plugins = [
 	new CleanWebpackPlugin(),
@@ -39,7 +43,12 @@ const plugins = [
 		filename: './index.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
 		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
 	}),
-].concat(multipleHtmlPlugins);
+	new HtmlWebpackPlugin({
+		template: `${PATHS.src}/html/contacts.html`,
+		filename: './contacts.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
+		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
+	}),
+];
 
 if (devMode) {
 	plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -65,6 +74,7 @@ module.exports = {
 		publicPath: '/', // devMode ? '/' : '../',
 		// assetModuleFilename: 'src/[name][ext][query]'
 	},
+	stats: { children: true },
 	optimization: {
 		// minimize: true,
 		minimizer: [
@@ -102,7 +112,7 @@ module.exports = {
 				test: /\.(sa|sc|c)ss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					{loader: 'css-loader', options: {sourceMap: true, importLoaders: 1}},
+					{loader: 'css-loader', options: {sourceMap: true}},
 					{loader: 'postcss-loader', options: {sourceMap: true}},
 					{loader: 'sass-loader', options: {sourceMap: true}},
 				],
@@ -131,12 +141,12 @@ module.exports = {
 			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env']
-					}
-				}
+				// use: {
+				// 	loader: 'babel-loader',
+				// 	options: {
+				// 		presets: ['@babel/preset-env']
+				// 	}
+				// }
 			}
 		]
 	}

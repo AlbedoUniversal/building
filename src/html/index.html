@@ -1,5 +1,5 @@
 	<!DOCTYPE html>
-	<html lang="en">
+	<html lang="ru">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,8 @@
 								<img class="logo__img" src="../assets/icons/logo.svg"/>
 							</a>
 						</div>
+					</div>
+					<div class="header__items-midle">
 						<nav class="menu">
 							<ul class="menu__list-upper">
 								<li class="menu__list-item"><a href="/" class="menu__list-link">Главная</a></li>
@@ -43,7 +45,7 @@
 										<li class="menu__list-item"><a href="#" class="menu__list-link">User Experience</a></li>
 									</ul> -->
 								</li>
-								<li class="menu__list-item"><a href="#" class="menu__list-link">Контакты</a></li>
+								<li class="menu__list-item"><a href="/contacts.html" class="menu__list-link">Контакты</a></li>
 								<!-- <li class="menu__list-item"><a href="#" class="menu__list-link">8-999-99-99</a></li> -->
 							</ul>
 						</nav>
@@ -51,52 +53,55 @@
 					<div class="header__items-right">
 						<div class="call">
 							<a class="call__number" href="tel:+79054809041">+7 905 480-90-41</a>
+							<a class="call__decor" href="tel:+79054809041">
+								<img class="call__icon" src="../assets/icons/phone.svg" alt="phone" />
+							</a>
 						</div>
+						<nav class="menu-mobile">
+							<input type="checkbox" class="menu-mobile__opener" id="mobile-menu-opener"/>
+							<label class="menu-mobile__label" for="mobile-menu-opener">
+								<span class="menu-mobile__icon"></span>
+							</label>
+							<ul class="menu-mobile__list-upper">
+								<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Главная</a></li>
+								<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Проекты</a>
+									<!-- <ul class="menu-mobile__list-average">
+										 <li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Жилые здания</a>
+											<ul class="menu-mobile__list-lower">
+												<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Квартиры</a></li>
+												<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Котеджи</a></li>
+											</ul> 
+										</li>
+										<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Дизайн</a></li>
+										<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Все проекты</a>
+											 <ul class="header__menu-list-lower">
+												<li class="menu__list-item"><a href="#" class="menu__list-link">HTML</a></li>
+												<li class="menu__list-item"><a href="#" class="menu__list-link">CSS</a></li>
+											</ul>
+										</li>
+									</ul> -->
+								</li>
+								<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">О компании</a>
+									<!-- <ul class="header__menu-list-average">
+										<li class="menu__list-item"><a href="#" class="menu__list-link">Web Design</a></li>
+										<li class="menu__list-item"><a href="#" class="menu__list-link">User Experience</a></li>
+									</ul> -->
+								</li>
+								<li class="menu-mobile__list-item"><a href="/contacts.html" class="menu-mobile__list-link">Контакты</a></li>
+								<!-- <li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">18-999-99-99</a></li> -->
+							</ul>
+						</nav>
 						<div class="form">
 							<span class="form__btn"></span>
 						</div>
 					</div>
-					<nav class="menu-mobile">
-						<input type="checkbox" class="menu-mobile__opener" id="mobile-menu-opener"/>
-						<label class="menu-mobile__label" for="mobile-menu-opener">
-							<span class="menu-mobile__icon"></span>
-						</label>
-						<ul class="menu-mobile__list-upper">
-							<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Главная</a></li>
-							<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Проекты</a>
-								<ul class="menu-mobile__list-average">
-									<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Жилые здания</a>
-										<ul class="menu-mobile__list-lower">
-											<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Квартиры</a></li>
-											<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Котеджи</a></li>
-										</ul>
-									</li>
-									<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Дизайн</a></li>
-									<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Все проекты</a>
-										<!-- <ul class="header__menu-list-lower">
-											<li class="menu__list-item"><a href="#" class="menu__list-link">HTML</a></li>
-											<li class="menu__list-item"><a href="#" class="menu__list-link">CSS</a></li>
-										</ul> -->
-									</li>
-								</ul>
-							</li>
-							<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">1О компании</a>
-								<!-- <ul class="header__menu-list-average">
-									<li class="menu__list-item"><a href="#" class="menu__list-link">Web Design</a></li>
-									<li class="menu__list-item"><a href="#" class="menu__list-link">User Experience</a></li>
-								</ul> -->
-							</li>
-							<li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">1Контакты</a></li>
-							<!-- <li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">18-999-99-99</a></li> -->
-						</ul>
-					</nav>
 				</div>
 			</header>
 			<!------ HEADER END ------>
 
 			<!------ GALLERY START ------>
 			<section class="gallery">
-				<div class="grid">
+				<div class="grid grid--first">
 					<div class="grid__box">
 						<a href="" class="grid__box-link">
 							<div class="grid__box-item">
@@ -269,10 +274,34 @@
 				</div>
 				<div class="feedback__post">
 					<form  class="feedback__form" action="" method="post" name="form">
+
 						<!-- Поле ввода имени -->
-						<input class="feedback__name" name="name" type="text" placeholder="Ваше имя" />
+						<div class="feedback__act-box">
+							<input
+								class="feedback__name"
+								name="name"
+								title="Invalid email address"
+								required
+								type="text"
+								placeholder="Ваше имя"
+								minlength="1"
+							/>
+							<span class="feedback__required">*</span>
+						</div>
+
 						<!-- Поле ввода почты  -->
-						<input class="feedback__email" name="email" type="text" placeholder="Электронная почта" />
+						<div class="feedback__act-box">
+							<input
+								class="feedback__email"
+								name="email"
+								id="email"
+								required
+								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+								type="email"
+								placeholder="Электронная почта"
+							/>
+							<span class="feedback__required">*</span>
+						</div>
 						<!-- Текстовое поле для самого сообщения -->
 						<textarea class="feedback__message" name="message" placeholder="Обращение"></textarea>
 						<!-- Кнопка с надписью «Отправить», которая запускает обработчик формы -->
@@ -285,6 +314,8 @@
 			</section>
 			<!------ FEEDBACK END ------>
 		</div>
+		
+		<!------ FOOTER START ------>
 		<footer class="footer">
 			<div class="footer__container">
 				<div class="footer__about">
@@ -340,5 +371,7 @@
 				</div>
 			</div>
 		</footer>
+		<!------ FOOTER END ------>
+		
 	</body>
 </html>
