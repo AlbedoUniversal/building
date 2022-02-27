@@ -56,3 +56,22 @@ li {
 	list-style-type: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  transition: background-color 5000s;
+//   -webkit-text-fill-color: #fff !important;
+}
+
+.form__name,
+.form__email,
+.form__message {
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover, 
+	&:-webkit-autofill:focus, 
+	&:-webkit-autofill:active {
+		  -webkit-text-fill-color: $c-white !important;
+	}
+}
+

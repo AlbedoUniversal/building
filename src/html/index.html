@@ -22,7 +22,7 @@
 						<nav class="menu">
 							<ul class="menu__list-upper">
 								<li class="menu__list-item"><a href="/" class="menu__list-link">Главная</a></li>
-								<li class="menu__list-item"><a href="#" class="menu__list-link">Проекты</a>
+								<li class="menu__list-item"><a href="" class="menu__list-link">Проекты</a>
 									<!-- <ul class="menu__list-average">
 										<li class="menu__list-item"><a href="#" class="menu__list-link">Жилые здания</a>
 											<ul class="menu__list-lower">
@@ -39,13 +39,13 @@
 										</li>
 									</ul> -->
 								</li>
-								<li class="menu__list-item"><a href="#" class="menu__list-link">Компаниия</a>
+								<li class="menu__list-item"><a href="" class="menu__list-link">Компаниия</a>
 									<!-- <ul class="header__menu-list-average">
 										<li class="menu__list-item"><a href="#" class="menu__list-link">Web Design</a></li>
 										<li class="menu__list-item"><a href="#" class="menu__list-link">User Experience</a></li>
 									</ul> -->
 								</li>
-								<li class="menu__list-item"><a href="/contacts.html" class="menu__list-link">Контакты</a></li>
+								<li class="menu__list-item"><a href="/company.html" class="menu__list-link">Контакты</a></li>
 								<!-- <li class="menu__list-item"><a href="#" class="menu__list-link">8-999-99-99</a></li> -->
 							</ul>
 						</nav>
@@ -57,6 +57,10 @@
 								<img class="call__icon" src="../assets/icons/phone.svg" alt="phone" />
 							</a>
 						</div>
+
+
+
+
 						<nav class="menu-mobile">
 							<input type="checkbox" class="menu-mobile__opener" id="mobile-menu-opener"/>
 							<label class="menu-mobile__label" for="mobile-menu-opener">
@@ -91,8 +95,57 @@
 								<!-- <li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">18-999-99-99</a></li> -->
 							</ul>
 						</nav>
+
+
+
 						<div class="form">
-							<span class="form__btn"></span>
+							<input type="checkbox" class="form__opener" id="form-opener"/>
+							<label class="form__label" for="form-opener">
+								<span class="form__icon"></span>
+							</label>
+							<div class="form__post">
+								<div class="form__text">
+									<p class="form__heading">Написать нам</p>
+									<p class="form__subheading">Оставьте заявку и мы с вами свяжемся в ближайшее время</p>
+								</div>
+								<form  class="feedback__form" action="" method="post" name="form">
+			
+									<!-- Поле ввода имени -->
+									<div class="form__act-box">
+										<input
+											class="form__name"
+											name="name"
+											title="Invalid email address"
+											required
+											type="text"
+											placeholder="Ваше имя"
+											minlength="1"
+										/>
+										<span class="form__required">*</span>
+									</div>
+			
+									<!-- Поле ввода почты  -->
+									<div class="form__act-box">
+										<input
+											class="form__email"
+											name="email"
+											id="email"
+											required
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+											type="email"
+											placeholder="Электронная почта"
+										/>
+										<span class="form__required">*</span>
+									</div>
+									<!-- Текстовое поле для самого сообщения -->
+									<textarea class="form__message" name="message" placeholder="Обращение"></textarea>
+									<!-- Кнопка с надписью «Отправить», которая запускает обработчик формы -->
+									<div class="form__form-bottom">
+										<span class="form__form-bottom-text">Нажимая на кнопку “Отправить” я даю согласие на обработку персональных данных</span>
+										<input  class="form__form-bottom-btn" type="submit" value="Отправить" />
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

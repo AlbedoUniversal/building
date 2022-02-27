@@ -390,35 +390,254 @@
 }
 
 .form {
-	&__btn {
-		display: block;
-		width: 56px;
-		height: 56px;
-		margin-left: 24px;
+	margin-left: 24px;
+	display: block;
+	width: 56px;
+	height: 56px;
+
+	position: relative;
+
+	border-radius: 100%;
+
+	background-color: $c-accentGreen;
+	
+	transition: background-color .3s;
+	cursor: pointer;
+
+	z-index: 20;
+
+	&:hover {
+		background-color: $c-hoverGreen;
+	}
+
+	&__post {
+		display: flex;
+		flex-direction: column;
+		width: 574px;
+		height: 730px;
+		padding: 60px 48px;
+
+		position: absolute;
+		left: -443px;
+		top: -785px;
+		z-index: 1;
+
+		visibility: hidden;
+
+		transition: all .3s; // появление меню с боку
+
+		background-color: #222222f5;;
+	}
+
+	&__heading {
+		margin-bottom: 18px;
+
+		color: $c-white;
+		font-weight: bold;
+		font-size: 42px;
+		line-height: 100%;
+		letter-spacing: -0.01em;
+	}
+
+	&__subheading {
+		margin-bottom: 40px;
+		padding-right: 60px;
+
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 150%;
+		letter-spacing: -0.01em;
+
+		color: #ACA6A6;
+	}
+
+	&__icon {
+		width: 21px;
 
 		position: relative;
+		top: 28px;
 
-		background-color: $c-accentGreen;
+		transition: all .3s;
 
-		border-radius: 100%;
-		cursor: pointer;
-		transition: background-color .3s;
+		&,
+		&::before,
+		&::after {
+			display: block;
+			
+			height: 2px;
 
+			background-color: $c-white;
+			border-radius: 6px;
+		}
 
 		&::before,
 		&::after {
-			content: "";
+			width: 21px;
+
 			position: absolute;
-			width: 2px;
-			height: 21px;
-			background-color:$c-white;
-			left: calc(50% - 1px);
-			bottom: 18px;
+			left: 0px;
+
+			content: '';
 		}
 
+		&::before {
+			content: none;
+			top: -6px;
+		}
 		&::after {
+			content: '';
+			top: 0px;
 			transform: rotate(90deg);
 		}
+	}
+
+	&__opener {
+		display: none;
+	}
+
+	&__label {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+
+		cursor: pointer;
+	}
+
+	&__opener:checked ~ &__post {
+		width: 574px;
+		height: 740px;
+		padding: 60px 48px;
+
+		position: absolute;
+		top: -45px;
+		left: -433px;
+		z-index: -1;
+
+		visibility: visible;
+
+		background: #222222f5;;
+		
+	}
+	
+	&__opener:checked ~ &__label > &__icon {
+		transform: rotate(45deg);
+	}
+	&__opener:checked ~ &__label > &__icon::before {
+		content: "";
+		width: 56px;
+		height: 56px;
+		background: transparent;
+		border: 1px solid;
+		top: -27px;
+		left: -17px;
+		border-radius: 100%;
+	}
+	&__opener:checked ~ &__label > &__icon::after {
+		width: 100%;
+
+		top: 0px;
+		left: 0px;
+
+		transform: rotate(90deg);
+	}
+	&__act-box {
+		position: relative;
+	}
+
+	&__name,
+	&__email,
+	&__message {
+		width: 100%;
+		height: 60px;
+		margin-bottom: 10px;
+		border: none;
+		outline: none;
+		border-bottom: 1px solid $c-borderGrey;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+
+		font-size: 18px;
+		line-height: 150%;
+		letter-spacing: -0.01em;
+		color: $c-white;
+
+		background: transparent;
+
+
+		&::placeholder {
+			color: $c-silver;
+		}
+	}
+
+
+	&__email:valid,
+	&__name:valid {
+		border-bottom-color: $c-accentGreen;
+
+		& + .form__required {
+			display: none;;
+		}
+	}
+
+	&__required {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+
+	&__email:required:invalid:focus,
+	&__name:required:invalid:focus {
+		border-bottom-color: $c-error;
+
+		& + .feedback__required {
+			color: $c-error;
+		}
+	}
+
+	&__message {
+		resize: none;
+
+		padding-top: 10px;
+		
+		font-family: "Manrope-Regular", Helvetica, Arial, sans-serif;
+
+		margin-bottom: 135px;
+	}
+
+	&__form-bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column-reverse;
+	}
+
+	&__form-bottom-text {
+		font-size: 14px;
+		line-height: 150%;
+
+		letter-spacing: -0.01em;
+
+		color: $c-lightSelver;
+	}
+	&__form-bottom-btn {
+		width: 100%;
+		margin-bottom: 27px;
+		background-color: $c-accentGreen;
+		border-radius: 71px;
+		padding: 18px 58px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: 24px;
+		line-height: 150%;
+
+		letter-spacing: -0.01em;
+
+		color: $c-white;
+
+		transition: background-color .3s;
 
 		&:hover {
 			background-color: $c-hoverGreen;

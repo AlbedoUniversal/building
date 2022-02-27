@@ -13,7 +13,7 @@ const PATHS = {
 	assets: "assets/"
 };
 
-const putFilesToDist = folder => devMode ? `${folder}/[name][ext]` : `${folder}/[name].[contenthash][ext]`;
+const putFilesToDist = folder => devMode ? `[name][ext]` : `[name].[contenthash][ext]`;
 
 const postcssPresetEnv = require('postcss-preset-env');
 
@@ -35,7 +35,7 @@ const devMode = process.env.NODE_ENV !== "production";
 const plugins = [
 	new CleanWebpackPlugin(),
 	new MiniCssExtractPlugin({
-		filename: "styles/[name].[contenthash].css",
+		filename: "[name].[contenthash].css",
 		chunkFilename: "[name].css",
 	}),
 	new HtmlWebpackPlugin({
@@ -69,9 +69,9 @@ module.exports = {
 	},
 	plugins,
 	output: {
-		filename: 'js/[name].[contenthash].js',
+		filename: '[name].[contenthash].js',
 		path: PATHS.dist,
-		publicPath: '/', // devMode ? '/' : '../',
+		publicPath: './', // devMode ? '/' : '../',
 		// assetModuleFilename: 'src/[name][ext][query]'
 	},
 	stats: { children: true },
