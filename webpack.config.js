@@ -1,36 +1,32 @@
 const webpack = require("webpack");
 const path = require('path');
+const set = require('./set.json');
 
 const HtmlWebpackPlugin      = require('html-webpack-plugin');
 const MiniCssExtractPlugin   = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin     = require("css-minimizer-webpack-plugin");
 const TerserWebpackPlugin    = require("terser-webpack-plugin");
+const postcssPresetEnv       = require('postcss-preset-env');
 
 const PATHS = {
 	src: path.join(__dirname, "src"),
 	dist: path.join(__dirname, "dist"),
 	assets: "assets/"
 };
+const devMode = process.env.NODE_ENV !== "production";
 
 const putFilesToDist = folder => devMode ? `${folder}/[name][ext]` : `${folder}/[name].[contenthash][ext]`;
 
-const postcssPresetEnv = require('postcss-preset-env');
+const pages = ['index', 'company', 'contacts', 'projects'];
 
-const devMode = process.env.NODE_ENV !== "production";
-
-// const htmlPageNames = ['contacts'];
-// const multipleHtmlPlugins = htmlPageNames.map(name => {
-//   return new HtmlWebpackPlugin({
-// 	template: `${PATHS.src}/html/${name}.html`,
-// 	filename: `./${name}.html`,
-// 	favicon: `${PATHS.src}/assets/icons/favicon.svg`,
-// 	chunks: [`${name}`],
-// 	assets: {
-//             style: "style.[hash].css",
-//         }
-// 	})
-// });
+const htmlPages = pages.map(page => {
+	return new HtmlWebpackPlugin({
+		template: `${PATHS.src}/html/${page}.ejs`,
+		filename: `./${page}.html`, // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
+		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
+	});
+});
 
 const plugins = [
 	new CleanWebpackPlugin(),
@@ -39,15 +35,13 @@ const plugins = [
 		chunkFilename: "[name].css",
 	}),
 	new HtmlWebpackPlugin({
-		template: `${PATHS.src}/html/index.html`,
+		template: `${PATHS.src}/html/index.ejs`,
 		filename: './index.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
 		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
+		templateParameters: set,
 	}),
-	new HtmlWebpackPlugin({
-		template: `${PATHS.src}/html/company.html`,
-		filename: './company.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
-		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
-	}),
+
+	...htmlPages,
 ];
 
 if (devMode) {
@@ -100,11 +94,14 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.html$/,
+				test: /\.ejs$/i,
 				   use: [
 					{
 						loader: 'html-loader',
 						options: { minimize: false },
+					},
+					{
+						loader: 'template-ejs-loader',
 					},
 				],
 			},
