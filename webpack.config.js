@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require('path');
-const set = require('./set.json');
 
 const HtmlWebpackPlugin      = require('html-webpack-plugin');
 const MiniCssExtractPlugin   = require("mini-css-extract-plugin");
@@ -38,7 +37,6 @@ const plugins = [
 		template: `${PATHS.src}/html/index.ejs`,
 		filename: './index.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
 		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
-		templateParameters: set,
 	}),
 
 	...htmlPages,
