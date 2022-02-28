@@ -1,3 +1,5 @@
+<% const meta = require('./../../stuffs.json') %>
+
 	<!DOCTYPE html>
 	<html lang="ru">
 	<head>
@@ -21,7 +23,7 @@
 					<div class="header__items-midle">
 						<nav class="menu">
 							<ul class="menu__list-upper">
-								<li class="menu__list-item"><a href="/" class="menu__list-link">Главная</a></li>
+								<li class="menu__list-item"><a href="/" class="menu__list-link">Главная <%= meta.staf %></a></li>
 								<li class="menu__list-item"><a href="/projects.html" class="menu__list-link">Проекты</a>
 									<!-- <ul class="menu__list-average">
 										<li class="menu__list-item"><a href="#" class="menu__list-link">Жилые здания</a>
@@ -153,56 +155,7 @@
 			<!------ HEADER END ------>
 
 			<!------ GALLERY START ------>
-			<section class="gallery">
-				<div class="grid grid--first">
-					<div class="grid__box">
-						<a href="" class="grid__box-link">
-							<div class="grid__box-item">
-								<div class="grid__box-decor">
-									<img src="../assets/images/varshavskay.png" class="grid__box-img" alt="build" />
-								</div>
-								<div class="grid__box-info">
-									<div class="grid__box-heading">LIFE-ВАРШАВСКАЯ</div>
-									<div class="grid__box-subheading">2021 ∙ 50 080 м&sup2;</div>
-								</div>
-							</div>
-						</a>
-						<a href="" class="grid__box-link">
-							<div class="grid__box-item">
-								<div class="grid__box-decor">
-									<img src="../assets/images/intonation.png" class="grid__box-img" alt="build" />
-								</div>
-								<div class="grid__box-info">
-									<div class="grid__box-heading">ЖК ИНТОНАЦИЯ</div>
-									<div class="grid__box-subheading">2020 ∙  40 491 м&sup2;</div>
-								</div>
-							</div>
-						</a>
-						<a href="" class="grid__box-link">
-							<div class="grid__box-item">
-								<div class="grid__box-decor">
-									<img src="../assets/images/shar.png" class="grid__box-img" alt="build" />
-								</div>
-								<div class="grid__box-info">
-									<div class="grid__box-heading">ЖК НА ШАРИКОПОДШИПНИКОВСКОЙ</div>
-								<div class="grid__box-subheading">2020 ∙ 320 000 м&sup2;</div>
-							</div>
-							</div>
-						</a>
-						<a href="" class="grid__box-link">
-							<div class="grid__box-item">
-								<div class="grid__box-decor">
-									<img src="../assets/images/spire.png" class="grid__box-img" alt="build" />
-								</div>
-								<div class="grid__box-info">
-									<div class="grid__box-heading">SPIRES</div>
-									<div class="grid__box-subheading">2016 ∙ 80 000 м&sup2;</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</section>
+			<%- include('./g.ejs', { title: 'TOP' }) %>
 			<!------ GALLERY END ------>
 
 			<!------ GALLERY START ------>

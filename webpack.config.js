@@ -37,6 +37,8 @@ const plugins = [
 		template: `${PATHS.src}/html/index.ejs`,
 		filename: './index.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
 		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
+		data: {title: "New Title", someVar:"hello world"},
+
 	}),
 
 	...htmlPages,
