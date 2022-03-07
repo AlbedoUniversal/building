@@ -17,7 +17,7 @@ const devMode = process.env.NODE_ENV !== "production";
 
 const putFilesToDist = folder => devMode ? `${folder}/[name][ext]` : `${folder}/[name].[contenthash][ext]`;
 
-const pages = ['index', 'company', 'contacts', 'projects'];
+const pages = ['index', 'company', 'contacts', 'projects', 'complexes', 'interiors', 'project'];
 
 const htmlPages = pages.map(page => {
 	return new HtmlWebpackPlugin({
@@ -30,15 +30,13 @@ const htmlPages = pages.map(page => {
 const plugins = [
 	new CleanWebpackPlugin(),
 	new MiniCssExtractPlugin({
-		filename: "styles/[name].[contenthash].css",
+		filename: "[name].[contenthash].css",
 		chunkFilename: "[name].css",
 	}),
 	new HtmlWebpackPlugin({
 		template: `${PATHS.src}/html/index.ejs`,
 		filename: './index.html', // './index.html' - devServer, 'html/index.html' - build // devMode ? './index.html' : 'html/index.html',
 		favicon: `${PATHS.src}/assets/icons/favicon.svg`,
-		data: {title: "New Title", someVar:"hello world"},
-
 	}),
 
 	...htmlPages,
@@ -135,6 +133,12 @@ module.exports = {
 					filename: putFilesToDist('fonts'),
 				}
 			},
+			{
+				test: /\.json$/i,
+				loader: 'json-loader',
+				type: 'javascript/auto',
+			},
+
 			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,

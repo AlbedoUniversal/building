@@ -6,14 +6,12 @@ export const setActivePage = () => {
 	const menuLinks = [];
 
 	for (const link of allLinks) {
-		console.log(link.classList);
 		if (link.className === 'menu__list-link') {
 			menuLinks.push(link);
 		}
 	}
 
 	for (let i = 0; i < menuLinks.length; i++) {
-		 console.log(menuLinks[i].href);
 		if (menuLinks[i].href === document.URL) {
 			current = i;
 		}

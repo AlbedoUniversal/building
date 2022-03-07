@@ -1,6 +1,4 @@
-<% const meta = require('./../../stuffs.json') %>
-
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html lang="ru">
 	<head>
 		<meta charset="UTF-8">
@@ -23,8 +21,8 @@
 					<div class="header__items-midle">
 						<nav class="menu">
 							<ul class="menu__list-upper">
-								<li class="menu__list-item"><a href="/" class="menu__list-link">Главная <%= meta.staf %></a></li>
-								<li class="menu__list-item"><a href="/projects.html" class="menu__list-link">Проекты</a>
+								<li class="menu__list-item"><a target="_self" href="/" class="menu__list-link">Главная</a></li>
+								<li class="menu__list-item"><a target="_self" href="/projects.html" class="menu__list-link">Проекты</a>
 									<!-- <ul class="menu__list-average">
 										<li class="menu__list-item"><a href="#" class="menu__list-link">Жилые здания</a>
 											<ul class="menu__list-lower">
@@ -41,13 +39,13 @@
 										</li>
 									</ul> -->
 								</li>
-								<li class="menu__list-item"><a href="/company.html" class="menu__list-link">Компаниия</a>
+								<li class="menu__list-item"><a target="_self" href="/company.html" class="menu__list-link">Компания</a>
 									<!-- <ul class="header__menu-list-average">
 										<li class="menu__list-item"><a href="#" class="menu__list-link">Web Design</a></li>
 										<li class="menu__list-item"><a href="#" class="menu__list-link">User Experience</a></li>
 									</ul> -->
 								</li>
-								<li class="menu__list-item"><a href="/contacts.html" class="menu__list-link">Контакты</a></li>
+								<li class="menu__list-item"><a target="_self" href="/contacts.html" class="menu__list-link">Контакты</a></li>
 								<!-- <li class="menu__list-item"><a href="#" class="menu__list-link">8-999-99-99</a></li> -->
 							</ul>
 						</nav>
@@ -60,17 +58,14 @@
 							</a>
 						</div>
 
-
-
-
 						<nav class="menu-mobile">
 							<input type="checkbox" class="menu-mobile__opener" id="mobile-menu-opener"/>
 							<label class="menu-mobile__label" for="mobile-menu-opener">
 								<span class="menu-mobile__icon"></span>
 							</label>
 							<ul class="menu-mobile__list-upper">
-								<li class="menu-mobile__list-item"><a href="/" class="menu-mobile__list-link">Главная</a></li>
-								<li class="menu-mobile__list-item"><a href="/projects.html" class="menu-mobile__list-link">Проекты</a>
+								<li class="menu-mobile__list-item"><a target="_self" href="" class="menu-mobile__list-link">Главная</a></li>
+								<li class="menu-mobile__list-item"><a target="_self" href="/projects.html" class="menu-mobile__list-link">Проекты</a>
 									<!-- <ul class="menu-mobile__list-average">
 										 <li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">Жилые здания</a>
 											<ul class="menu-mobile__list-lower">
@@ -87,15 +82,16 @@
 										</li>
 									</ul> -->
 								</li>
-								<li class="menu-mobile__list-item"><a href="/company.html" class="menu-mobile__list-link">Компания</a>
+								<li class="menu-mobile__list-item"><a target="_self" href="/company.html" class="menu-mobile__list-link">Компания</a>
 									<!-- <ul class="header__menu-list-average">
 										<li class="menu__list-item"><a href="#" class="menu__list-link">Web Design</a></li>
 										<li class="menu__list-item"><a href="#" class="menu__list-link">User Experience</a></li>
 									</ul> -->
 								</li>
-								<li class="menu-mobile__list-item"><a href="/contacts.html" class="menu-mobile__list-link">Контакты</a></li>
+								<li class="menu-mobile__list-item"><a target="_self" href="/contacts.html" class="menu-mobile__list-link">Контакты</a></li>
 								<!-- <li class="menu-mobile__list-item"><a href="#" class="menu-mobile__list-link">18-999-99-99</a></li> -->
 							</ul>
+							<div class="menu-mobile__list-upper-overlay"></div>
 						</nav>
 
 
@@ -155,14 +151,63 @@
 			<!------ HEADER END ------>
 
 			<!------ GALLERY START ------>
-			<%- include('./g.ejs', { title: 'TOP' }) %>
+			<section class="gallery">
+				<div class="grid grid--first">
+					<div class="grid__box">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
+							<div class="grid__box-item">
+								<div class="grid__box-decor">
+									<img src="../assets/images/varshavskay.png" class="grid__box-img" alt="build" />
+								</div>
+								<div class="grid__box-info">
+									<div class="grid__box-heading">LIFE-ВАРШАВСКАЯ</div>
+									<div class="grid__box-subheading">2021 ∙ 50 080 м&sup2;</div>
+								</div>
+							</div>
+						</a>
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
+							<div class="grid__box-item">
+								<div class="grid__box-decor">
+									<img src="../assets/images/intonation.png" class="grid__box-img" alt="build" />
+								</div>
+								<div class="grid__box-info">
+									<div class="grid__box-heading">ЖК ИНТОНАЦИЯ</div>
+									<div class="grid__box-subheading">2020 ∙  40 491 м&sup2;</div>
+								</div>
+							</div>
+						</a>
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
+							<div class="grid__box-item">
+								<div class="grid__box-decor">
+									<img src="../assets/images/shar.png" class="grid__box-img" alt="build" />
+								</div>
+								<div class="grid__box-info">
+									<div class="grid__box-heading">ЖК НА ШАРИКОПОДШИПНИКОВСКОЙ</div>
+								<div class="grid__box-subheading">2020 ∙ 320 000 м&sup2;</div>
+							</div>
+							</div>
+						</a>
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
+							<div class="grid__box-item">
+								<div class="grid__box-decor">
+									<img src="../assets/images/spire.png" class="grid__box-img" alt="build" />
+								</div>
+								<div class="grid__box-info">
+									<div class="grid__box-heading">SPIRES</div>
+									<div class="grid__box-subheading">2016 ∙ 80 000 м&sup2;</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
 			<!------ GALLERY END ------>
 
 			<!------ GALLERY START ------>
 			<section class="gallery gallery--bottomBorder">
 				<div class="grid">
 					<div class="grid__box grid__box--small">
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor grid__box-decor--small">
 									<img src="../assets/images/bigtime.png" class="grid__box-img" alt="build" />
@@ -173,7 +218,7 @@
 								</div>
 							</div>
 						</a>
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor grid__box-decor--small">
 									<img src="../assets/images/triniti.png" class="grid__box-img" alt="build" />
@@ -184,7 +229,7 @@
 								</div>
 							</div>
 						</a>
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor grid__box-decor--small">
 									<img src="../assets/images/myak.png" class="grid__box-img" alt="build" />
@@ -195,7 +240,7 @@
 							</div>
 							</div>
 						</a>
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor grid__box-decor--small">
 									<img src="../assets/images/now.png" class="grid__box-img" alt="build" />
@@ -206,7 +251,7 @@
 								</div>
 							</div>
 						</a>
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor grid__box-decor--small">
 									<img src="../assets/images/gardern.png" class="grid__box-img" alt="build" />
@@ -217,7 +262,7 @@
 								</div>
 							</div>
 						</a>
-						<a href="" class="grid__box-link grid__box-link--action">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__/project.htmlb target="_blank"ox-link grid__box-link--action">
 							<div class="grid__box-item grid__box-item--action">
 								<div class="grid__box-allProjects">
 
@@ -241,7 +286,7 @@
 						<span class="grid__heading-text">Интерьеры</span>
 					</div>
 					<div class="grid__box">
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor">
 									<img src="../assets/images/tver.png" class="grid__box-img" alt="build" />
@@ -252,7 +297,7 @@
 								</div>
 							</div>
 						</a>
-						<a href="" class="grid__box-link">
+						<a href="/project.html" target="_blank" rel="noopener noreferrer" class="grid__box-link">
 							<div class="grid__box-item">
 								<div class="grid__box-decor">
 									<img src="../assets/images/raz.png" class="grid__box-img" alt="build" />
@@ -334,16 +379,16 @@
 						<div class="footer__menu">
 							<ul class="footer__menu-list">
 								<li class="footer__menu-item">
-									<a href="" class="footer__menu-link" href="/projects.html">Проекты</a>
+									<a class="footer__menu-link" href="/projects.html">Проекты</a>
 								</li>
 								<li class="footer__menu-item">
-									<a href="" class="footer__menu-link" href="/company.html">Компания</a>
+									<a class="footer__menu-link" href="/company.html">Компания</a>
 								</li>
 								<li class="footer__menu-item">
-									<a href="" class="footer__menu-link" href="/projects.html">Услуги</a>
+									<a class="footer__menu-link" href="/projects.html">Услуги</a>
 								</li>
 								<li class="footer__menu-item">
-									<a href="" class="footer__menu-link" href="/contacts.html">Контакты</a>
+									<a class="footer__menu-link" href="/contacts.html">Контакты</a>
 								</li>
 							</ul>
 						</div>
@@ -378,6 +423,5 @@
 			</div>
 		</footer>
 		<!------ FOOTER END ------>
-		
 	</body>
 </html>
